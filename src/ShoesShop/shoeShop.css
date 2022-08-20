@@ -1,0 +1,33 @@
+.bg-gradient {
+  background: linear-gradient(to right, #ff9d00, #ff0000);
+  border: transparent;
+  color: white;
+  font-weight: 600;
+}
+
+.overlay-slash {
+  /* position: relative; */
+  overflow: hidden;
+}
+.overlay-slash::before {
+  content: "";
+  background: linear-gradient(
+    to bottom right,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0.3)
+  );
+  height: 100%;
+  width: 50%;
+  transform: skewX(-25deg);
+  position: absolute;
+  top: 0;
+  left: -85%;
+  transition: 0.5s;
+}
+.overlay-slash:hover::before {
+  left: 130%;
+}
+
+.cart-quantity {
+  transform: translate(-35%, -110%);
+}

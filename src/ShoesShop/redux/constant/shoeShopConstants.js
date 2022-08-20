@@ -1,0 +1,8 @@
+export const ADD_TO_CART = "ADD_TO_CART";
+export const UP_CART_QTY = "UP_QTY_CART";
+export const DOWN_CART_QTY = "DOWN_QTY_CART";
+export const REMOVE_CART_ITEM = "REMOVE_CART_ITEM";
+export const OPEN_CART_MODAL = "OPEN_CART_MODAL";
+export const CLOSE_CART_MODAL = "CLOSE_CART_MODAL";
+export const VIEW_DETAILS = "VIEW_DETAILS";
+export const CLOSE_VIEW_DETAIL = "CLOSE_VIEW_DETAIL";
