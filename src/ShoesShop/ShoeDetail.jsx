@@ -9,7 +9,7 @@ class ShoeDetail extends Component {
         this.props.shoeDetail;
       return (
         <>
-          <div className="container max-w-screen-lg fixed top-[5vh] left-1/2 -translate-x-2/4 bg-white z-10">
+          <div className="container max-w-screen-lg fixed top-[5vh] left-1/2 -translate-x-2/4 bg-white duration-500 z-10">
             <div className="absolute right-10 top-5">
               <i
                 className="fa-solid fa-xmark text-red-500 text-3xl leading-8 cursor-pointer"
@@ -17,13 +17,25 @@ class ShoeDetail extends Component {
               ></i>
             </div>
 
-            <div className="max-h-[90vh] py-8 px-12 overflow-auto">
+            <div className="max-h-[90vh] py-8 px-12 overflow-auto text-xl text-start">
               <img src={image} alt="" className="mx-auto" />
-              <p>Name: {name}</p>
-              <p>alias: {alias}</p>
-              <p>Description: {description}</p>
-              <p>Stock: {quantity}</p>
-              <p>Price: {price}</p>
+              <p className="text-2xl">
+                <span className="font-semibold">Name:</span> {name}
+              </p>
+              <p>
+                <span className="font-semibold">Alias:</span> {alias}
+              </p>
+              <p>
+                <span className="font-semibold">Description:</span>{" "}
+                {description}
+              </p>
+              <p>
+                <span className="font-semibold text-green-500">Stock:</span>{" "}
+                {quantity}
+              </p>
+              <p>
+                <span className="font-semibold">Price:</span> {price}
+              </p>
             </div>
           </div>
           <div

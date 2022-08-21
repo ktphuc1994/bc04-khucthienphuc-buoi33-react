@@ -3,8 +3,8 @@ import { connect } from "react-redux";
 import { OPEN_CART_MODAL } from "./redux/constant/shoeShopConstants";
 import ListShoes from "./ListShoes";
 import ShoesCart from "./ShoesCart";
-import "./shoeShop.css";
 import ShoeDetail from "./ShoeDetail";
+import "./shoeShop.css";
 
 class ShoesShop extends Component {
   renderCartQty = () => {

@@ -1,3 +1,4 @@
+import { CartItem } from "../../model/cartItem.modal";
 import {
   ADD_TO_CART,
   CLOSE_CART_MODAL,
@@ -21,9 +22,30 @@ export const cartReducer = (state = stateCart, { type, payload }) => {
       return { ...state, isOpened: false };
     case ADD_TO_CART:
       // console.log(payload.id);
-      index = state.cart.findIndex((item) => item.id === payload.id);
+      let {
+        id,
+        name,
+        alias,
+        price,
+        description,
+        shortDescription,
+        quantity,
+        image,
+      } = payload;
+      index = state.cart.findIndex((item) => item.id === id);
       if (index === -1) {
-        state.cart = [...state.cart, { ...payload, cartQty: 1 }];
+        let newCartItem = new CartItem(
+          id,
+          name,
+          alias,
+          price,
+          description,
+          shortDescription,
+          quantity,
+          image,
+          1
+        );
+        state.cart = [...state.cart, newCartItem];
       } else {
         state.cart[index].cartQty++;
         state.cart = [...state.cart];

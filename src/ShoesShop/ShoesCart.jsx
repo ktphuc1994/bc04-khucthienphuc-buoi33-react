@@ -14,7 +14,7 @@ class ShoesCart extends Component {
       return (
         <div
           key={index.toString() + id}
-          className="bg-white border-b hover:bg-gray-50 flex items-center text-lg"
+          className="bg-white border-b hover:bg-gray-50 duration-300 flex items-center text-lg"
         >
           <p className="w-1/12 py-4 px-4 font-medium text-gray-900 whitespace-nowrap">
             {index + 1}
@@ -44,7 +44,9 @@ class ShoesCart extends Component {
               }}
             ></i>
           </p>
-          <p className="w-2/12 py-4 px-4">{price * cartQty}</p>
+          <p className="w-2/12 py-4 px-4 text-red-500 font-medium text-xl">
+            {item.totalPrice()}
+          </p>
           <p className="w-1/12 py-4 px-4">
             <i
               className="cursor-pointer fa-regular fa-trash-can text-red-500 text-2xl"
@@ -57,13 +59,18 @@ class ShoesCart extends Component {
       );
     });
   };
+  renderTotalPayment = () => {
+    return this.props.cart.reduce((total, item) => {
+      return total + item.totalPrice();
+    }, 0);
+  };
   render() {
     return (
       <>
-        <div className="container max-w-screen-lg fixed top-[5vh] left-1/2 -translate-x-2/4 pt-[3.5rem] z-10">
-          <div className="overflow-x-auto shadow-md sm:rounded-b-lg max-h-[calc(90vh-3.5rem)] overflow-auto">
+        <div className="container max-w-screen-lg fixed top-[3vh] left-1/2 -translate-x-2/4 z-10">
+          <div className="overflow-x-auto shadow-md sm:rounded-lg">
             <div className="w-full text-left text-gray-500">
-              <div className="cart-header text-gray-700 uppercase bg-gray-300 sm:rounded-t-lg absolute w-full top-0">
+              <div className="cart-header text-gray-700 uppercase bg-gray-300">
                 <div className="flex items-center text-center font-bold">
                   <p className="w-1/12 py-3 px-4">STT</p>
                   <p className="w-2/12 py-3 px-4">Hình ảnh</p>
@@ -79,7 +86,7 @@ class ShoesCart extends Component {
                   </p>
                 </div>
               </div>
-              <div className="cart-body text-center">
+              <div className="cart-body text-center max-h-[76vh] overflow-auto">
                 {this.props.cart.length !== 0 ? (
                   this.renderTbody()
                 ) : (
@@ -89,6 +96,12 @@ class ShoesCart extends Component {
                 )}
               </div>
             </div>
+            <p className="bg-white py-4 px-[155px] text-2xl font-medium border-t flex justify-between items-center">
+              <span>Tổng cộng:</span>
+              <span className="ml-10 text-red-500">
+                $ {this.renderTotalPayment()}
+              </span>
+            </p>
           </div>
         </div>
         <div
